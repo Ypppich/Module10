@@ -8,11 +8,11 @@ import java.util.regex.Pattern;
 
 public class PhoneNumbersValidator {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the directory of the file: ");
         String directory = scanner.nextLine();
-
+        //Перевірка чи файл дійсно є за зазначеним шляхом
         File file = new File(directory);
         if (!file.exists()) {
             System.out.println("File not found.");
@@ -33,8 +33,6 @@ public class PhoneNumbersValidator {
                     System.out.println(line);
                 }
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading file " + file.getName() + ": " + e.getMessage());
         }
     }
 }
