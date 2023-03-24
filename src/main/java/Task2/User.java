@@ -12,9 +12,16 @@ public class User {
     private String name;
     private int age;
 
-    User(String name, int age) {
+    User(String name, int age) throws IllegalArgumentException {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty");
+        }
+        try {
+            this.age = Integer.parseInt(Integer.toString(age));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Age must be a number");
+        }
         this.name = name;
-        this.age = age;
     }
 
     public String getName() {

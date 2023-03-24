@@ -2,10 +2,8 @@ package Task3;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.Scanner;
+import java.util.*;
+
 public class WordsCounter {
     public static void main(String[] args) throws IOException {
         Scanner fileDirectory = new Scanner(System.in);
@@ -45,7 +43,7 @@ public class WordsCounter {
 
     public static void printWordsCounter(Map<String, Integer> wordCounts) {
         //Створюємо TreeMap для сортування за зростанням кількості входжень.
-        Map<Integer, String> sortedWordCounts = new TreeMap<>();
+        Map<Integer, String> sortedWordCounts = new TreeMap<>(Collections.reverseOrder());
         for (Map.Entry<String, Integer> entry : wordCounts.entrySet()) {
             sortedWordCounts.put(entry.getValue(), entry.getKey());
         }
